@@ -1,6 +1,6 @@
 # Phân Tích Mật Độ Tiện Ích Đô Thị & Khả Năng Tiếp Cận Không Gian (PostGIS)
 
-## 📌 Project Overview
+## 📌 Tổng quan dự án
 
 Dự án này đánh giá sự phân bố không gian, mật độ và khả năng tiếp cận đô thị đối với các cơ sở dịch vụ công cộng trên khắp **Thành phố Hồ Chí Minh (TP.HCM)** thông qua việc sử dụng **PostgreSQL và PostGIS**.
 
