@@ -1,12 +1,12 @@
 # Phân Tích Mật Độ Tiện Ích Đô Thị & Khả Năng Tiếp Cận Không Gian (PostGIS)
 
-## 📌 Tổng quan dự án
+## 📌 Tổng quan Dự án
 
 Dự án này đánh giá sự phân bố không gian, mật độ và khả năng tiếp cận đô thị đối với các cơ sở dịch vụ công cộng trên khắp **Thành phố Hồ Chí Minh (TP.HCM)** thông qua việc sử dụng **PostgreSQL và PostGIS**.
 
 ---
 
-## 🎯 Mục Tiêu Dự Án
+## 🎯 Mục tiêu Dự án
 
 1. **Phân tích mật độ không gian:** Thống kê số lượng và mật độ phân bố của các cơ sở giáo dục trên từng đơn vị hành chính cấp Xã/Phường.
 2. **Phân tích khả năng tiếp cận y tế khẩn cấp:** Định vị cơ sở y tế gần nhất cho mỗi trường học và tính toán khoảng cách đường chim bay thực tế theo hệ tọa độ trắc địa (Ellipsoid WGS84).
@@ -41,7 +41,7 @@ Dữ liệu vị trí các cơ sở y tế và giao dục tại khu vực TP.HCM
 
 ---
 
-## 📂 Cấu trúc thư mục dự án
+## 📂 Cấu trúc thư mục Dự án
 
 ```
 urban_facility_accessibility_&_spatial_density_analysis_postgis/
@@ -68,13 +68,13 @@ urban_facility_accessibility_&_spatial_density_analysis_postgis/
 
 ---
 
-## ⚙️ Phương pháp xử lý & Truy vấn SQL
+## ⚙️ Phương pháp Xử lý & Truy vấn SQL
 
-### Bước 1: Database Setup & Spatial Indexing
+### Bước 1: Chuẩn bị Cơ sở Dữ liệu
 
 Dữ liệu được nhập từ QGIS vào PostgreSQL thông qua DB Manager, trong đó các chỉ mục không gian (`Spatial Index`) được tạo trên cột hình học (`geom`) nhằm tối ưu hóa hiệu suất cho các tập dữ liệu đô thị quy mô lớn.
 
-### Bước 2: Thống Kê Mật Độ Cơ Sở Giáo Dục Theo Xã/Phường (Point-in-Polygon)
+### Bước 2: Thống kê Mật độ Cơ sở Giáo dục theo Xã/Phường (Point-in-Polygon)
 
 Tính toán số lượng cơ sở giáo dục theo từng đơn vị hành chính, xác định diện tích từng đơn vị hành chính chính xác thông qua việc chuyển đổi sang kiểu `::geography` (dựa trên mô hình ellipsoid), đồng thời đánh giá mật độ cơ sở giáo dục trên mỗi km2.
 
@@ -96,7 +96,7 @@ GROUP BY xp.xa_phuong, xp.quan_huyen, xp.geom
 ORDER BY mat_do_co_so_giao_duc DESC;
 ```
 
-### Bước 3: Phân Tích Cơ Sở Y Tế Gần Nhất Cho Mỗi Trường Học (KNN Analysis)
+### Bước 3: Phân tích Cơ sở Y tế gần nhất cho từng Cơ sở Giáo dục (KNN Analysis)
 
 Xác định cơ sở y tế gần nhất cho mỗi cơ sở giáo dục tại TP.HCM và tính toán khoảng cách địa lý chính xác (theo đường chim bay) theo đơn vị mét.
 
@@ -122,7 +122,7 @@ ORDER BY khoang_cach_m ASC;
 
 ## 📈 Kết quả thu được
 
-### 1. Bảng Top 10 Xã/Phường có mật độ cơ sở giáo dục lớn nhất:
+### 1. Bảng Top 10 Xã/Phường có Mật độ Cơ sở Giáo dục lớn nhất:
 
 Sau khi thực thi truy vấn Thống kê mật độ cơ sở giáo dục theo từng Xã/Phường (Point in Polygon) đây là kết quả thu được.
 
@@ -139,7 +139,7 @@ Sau khi thực thi truy vấn Thống kê mật độ cơ sở giáo dục theo 
 | **9** | Phường 8 | Quận 11 | 4 | 0.34 | 11.87 |
 | **10** | Phường 3 | Bình Thạnh | 5 | 0.45 | 11.12 |
 
-### 2. Bảng Top 10 Cơ sở giáo dục có khoảng cách nhỏ nhất:
+### 2. Bảng Top 10 Cơ sở Giáo dục có khoảng cách nhỏ nhất:
 
 Sau khi thực thi truy vấn Phân Tích Cơ Sở Y Tế Gần Nhất Cho Mỗi Trường Học (KNN Analysis) đây là kết quả thu được.
 
