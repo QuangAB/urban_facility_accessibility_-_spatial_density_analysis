@@ -30,7 +30,7 @@ Dự án này đánh giá sự phân bố không gian, mật độ và khả nă
 * `CoSoYTe_HCM.gpkg`: Vị trí không gian các cơ sở y tế (Bệnh viện/Trạm y tế) tại TP.HCM (Point, 197 đối tượng).
 * `RanhGioi_Xa&Phuong_HCM.gpkg`: Ranh giới hành chính Xã/Phường TP.HCM (Polygon, 322 đối tượng).
 
-Dữ liệu Ranh giới Xã/Phường TP.HCM thu thập trên GADM (url:https://gadm.org/download_country.html).
+Dữ liệu Ranh giới Xã/Phường TP.HCM thu thập trên GADM (url: https://gadm.org/download_country.html).
 Dữ liệu vị trí các cơ sở y tế và giao dục tại khu vực TP.HCM thu thập nguồn dữ liệu mở OpenStreetMap (OSM).
 
 ### 2. Dữ liệu cho Cơ sở Dữ liệu (Database)
