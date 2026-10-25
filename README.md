@@ -70,9 +70,15 @@ urban_facility_accessibility_&_spatial_density_analysis_postgis/
 
 ## ⚙️ Phương pháp Xử lý & Truy vấn SQL
 
-### Bước 1: Chuẩn bị Cơ sở Dữ liệu
+### Bước 1: Chuẩn bị và Chuẩn hóa dữ liệu
 
-Dữ liệu được nhập từ QGIS vào PostgreSQL thông qua DB Manager, trong đó các chỉ mục không gian (`Spatial Index`) được tạo trên cột hình học (`geom`) nhằm tối ưu hóa hiệu suất cho các tập dữ liệu đô thị quy mô lớn.
+Sau khi tiến hành thu thập các lớp dữ liệu (ranh giới Xã/Phường TP.HCM, cơ sở y tế và giáo dục TP.HCM), tiến hành thực hiện chuẩn hóa dữ liệu đầu vào. Kiểm tra lỗi hình học (topology), kiểm tra chất lượng của dữ liệu, bổ sung thêm những dữ liệu bị thiếu bằng thao tác số hóa thủ công thông qua vị trí ảnh vệ tinh.
+
+![Sơ đồ kiến trúc hệ thống](C:/Users/ADMIN/Documents/6. DATA_QGIS_COURSE/urban_facility_accessibility_&_spatial_density_analysis_postgis/Bổ sung dữ liệu.pgn)
+
+### Bước 1: Nạp dữ liệu vào Cơ sở dữ liệu
+
+Dữ liệu sau khi đã được chuẩn hóa sẽ được nhập từ QGIS vào PostgreSQL thông qua DB Manager, trong đó các chỉ mục không gian (`Spatial Index`) được tạo trên cột hình học (`geom`) nhằm tối ưu hóa hiệu suất cho các tập dữ liệu đô thị quy mô lớn.
 
 ### Bước 2: Thống kê Mật độ Cơ sở Giáo dục theo Xã/Phường (Point-in-Polygon)
 
