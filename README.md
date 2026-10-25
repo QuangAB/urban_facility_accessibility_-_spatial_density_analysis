@@ -74,7 +74,7 @@ urban_facility_accessibility_&_spatial_density_analysis_postgis/
 
 Sau khi tiến hành thu thập các lớp dữ liệu (ranh giới Xã/Phường TP.HCM, cơ sở y tế và giáo dục TP.HCM), tiến hành thực hiện chuẩn hóa dữ liệu đầu vào. Kiểm tra lỗi hình học (topology), kiểm tra chất lượng của dữ liệu, bổ sung thêm những dữ liệu bị thiếu bằng thao tác số hóa thủ công thông qua vị trí ảnh vệ tinh.
 
-![Bổ sung dữ liệu thiếu](images/Bổ sung dữ liệu.png)
+![Bổ sung dữ liệu thiếu](images/add_data.png)
 
 ### Bước 1: Nạp dữ liệu vào Cơ sở dữ liệu
 
