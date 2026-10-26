@@ -169,3 +169,5 @@ Sau khi thực thi truy vấn Phân Tích Cơ Sở Y Tế Gần Nhất Cho Mỗi
 ## 📊 Ứng dụng thực tế
 
 **Đánh giá tiếp cận:** Tìm ra các trường học ở khu vực giáp ranh hoặc vùng sâu vùng xa có khoảng cách đến cơ sở y tế gần nhất kéo dài trên 5 km, phục vụ công tác lập kế hoạch phân bổ trạm y tế lưu động hoặc phương án cấp cứu trường học.
+
+![Vị trí các cơ sở y tế và giáo dục tại TP.HCM](layout/map.png)
