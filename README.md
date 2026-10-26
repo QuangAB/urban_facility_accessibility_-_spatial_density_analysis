@@ -48,28 +48,28 @@ Dữ liệu vị trí các cơ sở y tế và giao dục tại khu vực TP.HCM
 ```
 urban_facility_accessibility_&_spatial_density_analysis_postgis/
 │
-├── data/                                                               	# Dữ liệu vector đầu vào gốc (WGS84 - EPSG:4326)
+├── data/                                                              	# Dữ liệu vector đầu vào gốc (WGS84 - EPSG:4326)
 │     ├── CoSoGiaoDuc_HCM.gpkg              
 │     ├── CoSoYTe_HCM.gpkg
 │     └── RanhGioi_Xa&Phuong_HCM.gpkg
 │
 ├── sql/                                            
-│     ├── Thống kê mật độ cơ sở giáo dục theo từng Xã-Phường.sql          	# Thống kê mật độ cơ sở giáo dục theo từng Xã-Phường
-│     └── Tìm cơ sở y tế gần nhất cho mỗi trường học.sql                 	# Tìm cơ sở y tế gần nhất cho mỗi trường học
+│     ├── Thống kê mật độ cơ sở giáo dục theo từng Xã-Phường.sql        # Thống kê mật độ cơ sở giáo dục theo từng Xã-Phường
+│     └── Tìm cơ sở y tế gần nhất cho mỗi trường học.sql                # Tìm cơ sở y tế gần nhất cho mỗi trường học
 │
 ├── images/                                                             
-│     ├── add_data.png														# Bổ sung thủ công dữ liệu cơ sở y tế và giáo dục bị thiếu               
-│     ├── add_database.png													# Nạp dữ liệu từ QGIS vào Cơ sở dữ liệu để thực hiện truy vấn
-│	  ├── query_1.png														# Đoạn truy vấn Thống kê Mật độ Cơ sở Giáo dục theo Xã/Phường
-│     └── query_2.png														# Đoạn truy vấn Phân tích Cơ sở Y tế gần nhất cho từng Cơ sở Giáo dục
+│     ├── add_data.png													# Bổ sung thủ công dữ liệu cơ sở y tế và giáo dục bị thiếu               
+│     ├── add_database.png												# Nạp dữ liệu từ QGIS vào Cơ sở dữ liệu để thực hiện truy vấn
+│	  ├── query_1.png													# Đoạn truy vấn Thống kê Mật độ Cơ sở Giáo dục theo Xã/Phường
+│     └── query_2.png													# Đoạn truy vấn Phân tích Cơ sở Y tế gần nhất cho từng Cơ sở Giáo dục
 │
 ├── layout/
-│	  └── map.png															# Vị trí các cơ sở y tế và giáo dục tại TP.HCM
+│	  └── map.png														# Vị trí các cơ sở y tế và giáo dục tại TP.HCM
 │
-├── QGS_project/                                                       		# File dự án đinh dạng .qgz
+├── QGS_project/                                                       	# File dự án đinh dạng .qgz
 │     └── urban_facility_accessibility_&_spatial_density_analysis.qgz
 │
-└── README.md                                                           	# Tài liệu hướng dẫn và ghi nhận dự án
+└── README.md                                                           # Tài liệu hướng dẫn và ghi nhận dự án
 ```
 
 ---
