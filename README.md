@@ -80,6 +80,8 @@ Sau khi tiến hành thu thập các lớp dữ liệu (ranh giới Xã/Phườn
 
 Dữ liệu sau khi đã được chuẩn hóa sẽ được nhập từ QGIS vào PostgreSQL thông qua DB Manager, trong đó các chỉ mục không gian (`Spatial Index`) được tạo trên cột hình học (`geom`) nhằm tối ưu hóa hiệu suất cho các tập dữ liệu đô thị quy mô lớn.
 
+![Bổ sung dữ liệu thiếu](images/add_database.png)
+
 ### Bước 2: Thống kê Mật độ Cơ sở Giáo dục theo Xã/Phường (Point-in-Polygon)
 
 Tính toán số lượng cơ sở giáo dục theo từng đơn vị hành chính, xác định diện tích từng đơn vị hành chính chính xác thông qua việc chuyển đổi sang kiểu `::geography` (dựa trên mô hình ellipsoid), đồng thời đánh giá mật độ cơ sở giáo dục trên mỗi km2.
