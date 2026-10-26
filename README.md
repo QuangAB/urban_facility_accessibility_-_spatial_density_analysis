@@ -58,14 +58,9 @@ urban_facility_accessibility_&_spatial_density_analysis_postgis/
 │     └── Tìm cơ sở y tế gần nhất cho mỗi trường học.sql                # Tìm cơ sở y tế gần nhất cho mỗi trường học
 │
 ├── images/
-│     ├── add_data.png
-│     ├── add_database.png
-│     ├── query_1.png
-│     └── query_2.png
-├── images/                                                             
-│     ├── add_data.png													# Bổ sung thủ công dữ liệu cơ sở y tế và giáo dục bị thiếu               
+│     ├── add_data.png													# Bổ sung thủ công dữ liệu cơ sở y tế và giáo dục bị thiếu
 │     ├── add_database.png												# Nạp dữ liệu từ QGIS vào Cơ sở dữ liệu để thực hiện truy vấn
-│	  ├── query_1.png													# Đoạn truy vấn Thống kê Mật độ Cơ sở Giáo dục theo Xã/Phường
+│     ├── query_1.png													# Đoạn truy vấn Thống kê Mật độ Cơ sở Giáo dục theo Xã/Phường
 │     └── query_2.png													# Đoạn truy vấn Phân tích Cơ sở Y tế gần nhất cho từng Cơ sở Giáo dục
 │
 ├── layout/
