@@ -64,7 +64,7 @@ urban_facility_accessibility_&_spatial_density_analysis_postgis/
 │     └── query_2.png							# Đoạn truy vấn Phân tích Cơ sở Y tế gần nhất cho từng Cơ sở Giáo dục
 │
 ├── layout/
-│     └── map.png								# Vị trí các cơ sở y tế và giáo dục tại TP.HCM
+│     └── map.png							# Vị trí các cơ sở y tế và giáo dục tại TP.HCM
 │
 ├── QGS_project/                                                       	# File dự án đinh dạng .qgz
 │     └── urban_facility_accessibility_&_spatial_density_analysis.qgz
