@@ -16,9 +16,11 @@ Dự án này đánh giá sự phân bố không gian, mật độ và khả nă
 
 ## 🛠️ Công nghệ & Dữ liệu sử dụng
 
-*   **Spatial Database:** PostgreSQL (pgAdmin4) với PostGIS extension.
-*   **GIS Interface & Data Management:** QGIS 3.44.15 (DB Manager).
-*   **Spatial Functions & Operators:** `ST_Contains`, `ST_Area`, `::geography`, `CROSS JOIN LATERAL`, KNN (`<->`).
+* **Cơ sở dữ liệu Không gian:** PostgreSQL (pgAdmin4) với PostGIS extension.
+
+* **Phần mềm GIS & Quản lý dữ liệu:** QGIS 3.44.15 (DB Manager).
+
+* **Hàm phân tích Không gian & Truy vấn:** `ST_Contains`, `ST_Area`, `::geography`, `CROSS JOIN LATERAL`, KNN (`<->`).
 
 ---
 
@@ -26,12 +28,12 @@ Dự án này đánh giá sự phân bố không gian, mật độ và khả nă
 
 ### 1. Dữ liệu vector
 
+Dữ liệu Ranh giới Xã/Phường TP.HCM thu thập trên GADM (url: https://gadm.org/download_country.html).
+Dữ liệu vị trí các cơ sở y tế và giao dục tại khu vực TP.HCM thu thập nguồn dữ liệu mở OpenStreetMap (OSM).
+
 * `CoSoGiaoDuc_HCM.gpkg`: Vị trí không gian các cơ sở giáo dục tại TP.HCM (Point, 815 đối tượng)
 * `CoSoYTe_HCM.gpkg`: Vị trí không gian các cơ sở y tế (Bệnh viện/Trạm y tế) tại TP.HCM (Point, 197 đối tượng).
 * `RanhGioi_Xa&Phuong_HCM.gpkg`: Ranh giới hành chính Xã/Phường TP.HCM (Polygon, 322 đối tượng).
-
-Dữ liệu Ranh giới Xã/Phường TP.HCM thu thập trên GADM (url: https://gadm.org/download_country.html).
-Dữ liệu vị trí các cơ sở y tế và giao dục tại khu vực TP.HCM thu thập nguồn dữ liệu mở OpenStreetMap (OSM).
 
 ### 2. Dữ liệu cho Cơ sở Dữ liệu (Database)
 
@@ -75,14 +77,16 @@ urban_facility_accessibility_&_spatial_density_analysis_postgis/
 Sau khi tiến hành thu thập các lớp dữ liệu (ranh giới Xã/Phường TP.HCM, cơ sở y tế và giáo dục TP.HCM), tiến hành thực hiện chuẩn hóa dữ liệu đầu vào. Kiểm tra lỗi hình học (topology), kiểm tra chất lượng của dữ liệu, bổ sung thêm những dữ liệu bị thiếu bằng thao tác số hóa thủ công thông qua vị trí ảnh vệ tinh.
 
 ![Bổ sung dữ liệu thiếu](images/add_data.png)
+*Hình 1: Bổ sung thủ công dữ liệu cơ sở y tế và giáo dục bị thiếu*
 
-### Bước 1: Nạp dữ liệu vào Cơ sở dữ liệu
+### Bước 2: Nạp dữ liệu vào Cơ sở dữ liệu
 
 Dữ liệu sau khi đã được chuẩn hóa sẽ được nhập từ QGIS vào PostgreSQL thông qua DB Manager, trong đó các chỉ mục không gian (`Spatial Index`) được tạo trên cột hình học (`geom`) nhằm tối ưu hóa hiệu suất cho các tập dữ liệu đô thị quy mô lớn.
 
-![Nạp dữ liệu và Cơ sở dữ liệu](images/add_database.png)
+![Nạp dữ liệu vào Cơ sở dữ liệu](images/add_database.png)
+*Hình 2: Nạp dữ liệu từ QGIS vào Cơ sở dữ liệu để thực hiện truy vấn*
 
-### Bước 2: Thống kê Mật độ Cơ sở Giáo dục theo Xã/Phường (Point-in-Polygon)
+### Bước 3: Thống kê Mật độ Cơ sở Giáo dục theo Xã/Phường (Point-in-Polygon)
 
 Tính toán số lượng cơ sở giáo dục theo từng đơn vị hành chính, xác định diện tích từng đơn vị hành chính chính xác thông qua việc chuyển đổi sang kiểu `::geography` (dựa trên mô hình ellipsoid), đồng thời đánh giá mật độ cơ sở giáo dục trên mỗi km2.
 
@@ -104,7 +108,10 @@ GROUP BY xp.xa_phuong, xp.quan_huyen, xp.geom
 ORDER BY mat_do_co_so_giao_duc DESC;
 ```
 
-### Bước 3: Phân tích Cơ sở Y tế gần nhất cho từng Cơ sở Giáo dục (KNN Analysis)
+![Truy vấn 1](images/query_1.png)
+*Hình 3: Kết quả Thống kê Mật độ Cơ sở Giáo dục theo Xã/Phường trên pgAdmin4*
+
+### Bước 4: Phân tích Cơ sở Y tế gần nhất cho từng Cơ sở Giáo dục (KNN Analysis)
 
 Xác định cơ sở y tế gần nhất cho mỗi cơ sở giáo dục tại TP.HCM và tính toán khoảng cách địa lý chính xác (theo đường chim bay) theo đơn vị mét.
 
@@ -125,6 +132,9 @@ CROSS JOIN LATERAL (
 ) yt
 ORDER BY khoang_cach_m ASC;
 ```
+
+![Truy vấn 1](images/query_2.png)
+*Hình 4: Kết quả Phân tích Cơ sở Y tế gần nhất cho từng Cơ sở Giáo dục trên pgAdmin4*
 
 ---
 
